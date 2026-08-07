@@ -37,6 +37,7 @@ export const Navbar = () => {
           <a href="#statistik" className="hover:text-primary-500 transition-colors">Statistik</a>
           <a href="#layanan" className="hover:text-primary-500 transition-colors">Layanan</a>
           <a href="#galeri" className="hover:text-primary-500 transition-colors">Galeri</a>
+          <a href="#kontak" className="hover:text-primary-500 transition-colors">Kontak</a>
         </nav>
 
         <button className="md:hidden text-inherit" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -58,6 +59,7 @@ export const Navbar = () => {
             <a href="#statistik" onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold uppercase tracking-[0.2em] hover:text-primary-500 transition-colors">Statistik</a>
             <a href="#layanan" onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold uppercase tracking-[0.2em] hover:text-primary-500 transition-colors">Layanan</a>
             <a href="#galeri" onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold uppercase tracking-[0.2em] hover:text-primary-500 transition-colors">Galeri</a>
+            <a href="#kontak" onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold uppercase tracking-[0.2em] hover:text-primary-500 transition-colors">Kontak</a>
           </motion.div>
         )}
       </AnimatePresence>
