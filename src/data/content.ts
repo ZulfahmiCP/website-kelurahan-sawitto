@@ -103,3 +103,15 @@ export const layanan = [
     output: "Surat Pengantar Kartu Keluarga (KK)"
   }
 ];
+
+export const galeri = [
+  { url: "https://images.unsplash.com/photo-1596395819057-e37f55a8516b?q=80&w=800&auto=format&fit=crop", alt: "Kegiatan Warga 1" },
+  { url: "https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=800&auto=format&fit=crop", alt: "Lingkungan Siparappe 1" },
+  { url: "https://images.unsplash.com/photo-1601662528567-526cd06f6582?q=80&w=800&auto=format&fit=crop", alt: "Pelayanan Kelurahan 1" },
+  { url: "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?q=80&w=800&auto=format&fit=crop", alt: "Kegiatan Warga 2" },
+  { url: "https://images.unsplash.com/photo-1580659324422-921473fb46e0?q=80&w=800&auto=format&fit=crop", alt: "Lingkungan Siparappe 2" },
+  { url: "https://images.unsplash.com/photo-1559828557-79fc04e9c704?q=80&w=800&auto=format&fit=crop", alt: "Pelayanan Kelurahan 2" },
+  { url: "https://images.unsplash.com/photo-1596395818944-77a3f4e24eb3?q=80&w=800&auto=format&fit=crop", alt: "Kegiatan Warga 3" },
+  { url: "https://images.unsplash.com/photo-1577412647248-1250280ebdbb?q=80&w=800&auto=format&fit=crop", alt: "Lingkungan Siparappe 3" },
+  { url: "https://images.unsplash.com/photo-1601662528612-42da650222f7?q=80&w=800&auto=format&fit=crop", alt: "Kegiatan Warga 4" }
+];
