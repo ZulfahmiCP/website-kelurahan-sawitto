@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 import { appInfo } from '../data/content';
+import logoPinrang from '../assets/logo-pinrang.png';
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -18,8 +19,15 @@ export const Navbar = () => {
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-surface/95 backdrop-blur-sm text-slate-900 border-b border-primary-100 py-4 shadow-sm' : 'bg-transparent text-white py-6'}`}>
       <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
-        <div className="text-xl md:text-2xl font-black tracking-tighter uppercase">
-          {appInfo.namaKelurahan}
+        <div className="flex items-center gap-3 md:gap-4">
+          <img 
+            src={logoPinrang} 
+            alt="Logo Kabupaten Pinrang" 
+            className="w-8 h-8 md:w-10 md:h-10 object-contain" 
+          />
+          <div className="text-xl md:text-2xl font-black tracking-tighter uppercase">
+            {appInfo.namaKelurahan}
+          </div>
         </div>
         
         <nav className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-[0.2em]">
