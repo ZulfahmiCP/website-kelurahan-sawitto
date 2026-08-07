@@ -9,16 +9,16 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
+          50: '#eff4fa',
+          100: '#dbe6f3',
+          200: '#bacce8',
+          300: '#8baad9',
+          400: '#5882c7',
+          500: '#3461b4',
+          600: '#254a93',
+          700: '#1e3c78',
+          800: '#1a3363',
+          900: '#172b4f', // Biru gelap yang solid, kalem, dan sangat formal
         },
         accent: {
           DEFAULT: '#cc0000',
