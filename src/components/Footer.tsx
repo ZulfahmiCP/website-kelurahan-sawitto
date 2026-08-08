@@ -12,7 +12,8 @@ export const Footer = () => {
   useEffect(() => {
     const fetchContact = async () => {
       try {
-        const response = await fetch('https://sheetdb.io/api/v1/syisid9ro01bq?sheet=Kontak');
+        // const response = await fetch('https://sheetdb.io/api/v1/syisid9ro01bq?sheet=Kontak');
+        const response = await fetch('https://script.google.com/macros/s/AKfycbzOqRAVR-FQJhSUKPrSHER7jO6rrXDinTlhLEFwJwzM0UJkP-HrLEAeNBgHsga8A_G0/exec?sheet=Kontak');
         const data = await response.json();
         
         // Memastikan data berhasil ditarik dan tidak kosong

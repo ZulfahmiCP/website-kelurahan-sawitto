@@ -28,7 +28,8 @@ export const Structure = () => {
   useEffect(() => {
     const fetchStruktur = async () => {
       try {
-        const response = await fetch('https://sheetdb.io/api/v1/syisid9ro01bq?sheet=Struktur');
+        // const response = await fetch('https://sheetdb.io/api/v1/syisid9ro01bq?sheet=Struktur');
+        const response = await fetch('https://script.google.com/macros/s/AKfycbzOqRAVR-FQJhSUKPrSHER7jO6rrXDinTlhLEFwJwzM0UJkP-HrLEAeNBgHsga8A_G0/exec?sheet=Struktur');
         const rawData: StrukturItem[] = await response.json();
         
         const processed: ProcessedStruktur = {
