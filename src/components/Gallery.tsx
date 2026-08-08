@@ -7,15 +7,26 @@ interface GalleryItem {
   url_foto: string;
 }
 
-// Fungsi ini akan mengambil ID dari link GDrive biasa dan mengubahnya menjadi link gambar langsung yang tidak diblokir browser
-const getDirectDriveLink = (url: string) => {
+// Fungsi pemroses gambar yang lebih kebal dan mendeteksi segala format kapital
+const getValidImageUrl = (url: string) => {
   if (!url) return '';
-  const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-  if (match && match[1]) {
-    // Menggunakan endpoint thumbnail Google yang lebih stabil (w1000 = lebar resolusi 1000px agar tidak pecah)
-    return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w1000`;
+
+  // 1. Tangani jika itu adalah link Google Drive
+  // Mendukung link Drive standar (/d/...) maupun variasi lama (?id=...)
+  const driveMatch = url.match(/\/d\/([a-zA-Z0-9_-]+)/) || url.match(/id=([a-zA-Z0-9_-]+)/);
+  if (driveMatch && driveMatch[1]) {
+    return `https://drive.google.com/thumbnail?id=${driveMatch[1]}&sz=w1000`;
   }
+
+  // 2. Jika bukan Google Drive, kembalikan URL aslinya.
+  // Tag <img> pada peramban modern sudah secara bawaan mendukung render 
+  // ekstensi seperti .jfif, .JPG, .PNG, .jpeg tanpa mempedulikan huruf kapital.
   return url;
+};
+
+// Fungsi tambahan untuk memfilter agar baris kosong tidak ikut terender
+const isValidRow = (item: GalleryItem) => {
+  return item.url_foto && item.url_foto.trim() !== '';
 };
 
 export const Gallery = () => {
@@ -29,7 +40,10 @@ export const Gallery = () => {
       try {
         const response = await fetch('https://sheetdb.io/api/v1/syisid9ro01bq?sheet=Galeri');
         const data = await response.json();
-        setImages(data);
+        
+        // Membersihkan data: hanya simpan data yang ada link fotonya
+        const validData = data.filter(isValidRow);
+        setImages(validData);
       } catch (error) {
         console.error(error);
       } finally {
@@ -65,18 +79,30 @@ export const Gallery = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.4, delay: idx * 0.05 }}
-                    className="relative aspect-square overflow-hidden rounded-2xl group bg-primary-100"
+                    className="relative aspect-square overflow-hidden rounded-2xl group bg-primary-100 shadow-sm"
                   >
                     <img 
-                      src={getDirectDriveLink(img.url_foto)} 
-                      alt={img.judul} 
+                      // Menggunakan fungsi getValidImageUrl yang baru
+                      src={getValidImageUrl(img.url_foto)} 
+                      alt={img.judul || `Galeri ${idx + 1}`} 
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       onError={(e) => {
-                        // Fallback abu-abu jika foto masih gagal dimuat atau link salah
+                        // Fallback jika foto terhapus atau format file rusak
                         e.currentTarget.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=';
                       }}
                     />
-                    <div className="absolute inset-0 bg-primary-900/0 group-hover:bg-primary-900/20 transition-colors duration-500"></div>
+                    
+                    {/* Gradasi gelap & Teks Judul */}
+                    {img.judul && (
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/10 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                          <h5 className="text-white font-bold text-lg leading-snug drop-shadow-md">
+                            {img.judul}
+                          </h5>
+                        </div>
+                      </>
+                    )}
                   </motion.div>
                 ))}
               </AnimatePresence>

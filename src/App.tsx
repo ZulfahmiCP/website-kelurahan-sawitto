@@ -4,6 +4,7 @@ import { Profile } from './components/Profile';
 import { Structure } from './components/Structure';
 import { Statistics } from './components/Statistics';
 import { Services } from './components/Services';
+import { FacilityMap } from './components/FacilityMap';
 import { Gallery } from './components/Gallery';
 import { Footer } from './components/Footer';
 
@@ -16,6 +17,7 @@ export default function App() {
       <Structure />
       <Statistics />
       <Services />
+      <FacilityMap />
       <Gallery />
       <Footer />
     </main>

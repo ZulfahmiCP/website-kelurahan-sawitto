@@ -25,22 +25,24 @@ export const Navbar = () => {
             alt="Logo Kabupaten Pinrang" 
             className="w-8 h-8 md:w-10 md:h-10 object-contain" 
           />
-          <div className="text-xl md:text-2xl font-black tracking-tighter uppercase">
+          <div className="text-xl md:text-2xl font-black tracking-tighter uppercase shrink-0">
             {appInfo.namaKelurahan}
           </div>
         </div>
         
-        <nav className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-[0.2em]">
+        {/* Solusi Navbar: Teks dan Gap dibuat responsif agar tidak bertabrakan di layar laptop kecil */}
+        <nav className="hidden md:flex items-center gap-4 lg:gap-8 text-[10px] lg:text-xs font-bold uppercase tracking-widest lg:tracking-[0.2em]">
           <a href="#beranda" className="hover:text-primary-500 transition-colors">Beranda</a>
           <a href="#profil" className="hover:text-primary-500 transition-colors">Profil</a>
           <a href="#struktur" className="hover:text-primary-500 transition-colors">Struktur</a>
           <a href="#statistik" className="hover:text-primary-500 transition-colors">Statistik</a>
           <a href="#layanan" className="hover:text-primary-500 transition-colors">Layanan</a>
+          <a href="#peta" className="hover:text-primary-500 transition-colors">Peta</a>
           <a href="#galeri" className="hover:text-primary-500 transition-colors">Galeri</a>
           <a href="#kontak" className="hover:text-primary-500 transition-colors">Kontak</a>
         </nav>
 
-        <button className="md:hidden text-inherit" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+        <button className="md:hidden text-inherit shrink-0" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
           {mobileMenuOpen ? <X /> : <Menu />}
         </button>
       </div>
@@ -58,6 +60,7 @@ export const Navbar = () => {
             <a href="#struktur" onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold uppercase tracking-[0.2em] hover:text-primary-500 transition-colors">Struktur</a>
             <a href="#statistik" onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold uppercase tracking-[0.2em] hover:text-primary-500 transition-colors">Statistik</a>
             <a href="#layanan" onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold uppercase tracking-[0.2em] hover:text-primary-500 transition-colors">Layanan</a>
+            <a href="#peta" onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold uppercase tracking-[0.2em] hover:text-primary-500 transition-colors">Peta</a>
             <a href="#galeri" onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold uppercase tracking-[0.2em] hover:text-primary-500 transition-colors">Galeri</a>
             <a href="#kontak" onClick={() => setMobileMenuOpen(false)} className="text-xs font-bold uppercase tracking-[0.2em] hover:text-primary-500 transition-colors">Kontak</a>
           </motion.div>
