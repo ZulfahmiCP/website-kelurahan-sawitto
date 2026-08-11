@@ -8,6 +8,7 @@ import { FacilityMap } from './components/FacilityMap';
 import { Gallery } from './components/Gallery';
 import { Footer } from './components/Footer';
 
+
 export default function App() {
   return (
     <main className="min-h-screen bg-surface font-sans">
