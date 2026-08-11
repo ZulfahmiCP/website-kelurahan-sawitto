@@ -11,8 +11,8 @@ export const Hero = () => {
           alt="Beranda Kelurahan" 
           className="w-full h-full object-cover" 
         />
+        {/* Hanya menyisakan lapisan gelap transparan agar teks putih tetap terbaca */}
         <div className="absolute inset-0 bg-slate-900/60"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-32 md:h-48 bg-gradient-to-t from-surface to-transparent"></div>
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
